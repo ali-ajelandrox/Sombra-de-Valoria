@@ -1,0 +1,576 @@
+/* Global Styles */
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    background-color: #161f32;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #0A1428;
+    padding: 16px;
+    box-shadow: 0px 8px 6px 11px rgba(0,0,0,0.75);
+    position: relative;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    margin: 0 16px;
+}
+
+header nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    color: #C8AA6E;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+    header nav ul {
+        display: none; /* Oculto por defecto */
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: #0A1428;
+        position: absolute;
+        top: 60px; /* Ajusta según el tamaño del header */
+        left: 0;
+        padding: 16px;
+        box-shadow: 0 8px 6px rgba(0,0,0,0.75);
+        z-index: 1000; /* Asegúrate de que el menú esté por encima del contenido */
+    }
+
+    header nav ul.active {
+        display: flex; /* Muestra el menú cuando está activo */
+    }
+
+    header nav ul li {
+        margin: 8px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Muestra el ícono de hamburguesa en pantallas pequeñas */
+    }
+}
+.hero {
+    background: linear-gradient(to bottom, #0A1428, #161f32);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 96px 16px; /* Ajustado padding */
+    background-image: url(../../img/principal.png);
+    background-position: center;
+    background-size: cover; /* Ajustado para ajuste automático */
+    background-repeat: no-repeat;
+}
+
+.hero h1 {
+    font-size: 4rem; /* Ajustado a rem para flexibilidad */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.hero p {
+    font-size: 1.5rem; /* Ajustado a rem para flexibilidad */
+    margin: 16px 0;
+}
+
+.cta-button {
+    margin: 0 20px; /* Espacio horizontal consistente */
+    display: inline-block;
+    background-color: #C8AA6E;
+    color: #0A1428;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.cta-button:hover {
+    background-color: #B2925A;
+    color: #ffffff;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    background-color: #0A1428; /* Fondo oscuro para un contraste elegante */
+    color: #FFFFFF;
+}
+
+.features h2 {
+    font-size: 36px;
+    color: #C8AA6E; /* Dorado */
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+/*features img y estilos gener*/
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 60px 20px;
+    background-color: #0A1428; /* Fondo oscuro para contraste */
+    color: #FFFFFF;
+    position: relative;
+}
+
+.feature {
+    position: relative;
+    width: 45%;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #1f2a38; /* Fondo oscuro para cada tarjeta */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Muestra que el elemento es interactivo */
+    padding: 20px; /* Espacio interno para el efecto hover */
+}
+
+.feature-left {
+    width: 80%;
+    margin-right: 15%; /* Espacio para el elemento central */
+}
+
+.feature-center {
+    width: 80%;
+    margin-left: 15%;
+    margin-right: auto;
+}
+
+.feature-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.feature-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    text-align: left;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    border-radius: 8px;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Agrega transición para hover */
+    opacity: 0; /* Oculta la información inicialmente */
+    transform: translateY(20px); /* Mueve la información hacia abajo */
+    max-height: 60%; /* Limita la altura para permitir el scroll */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+}
+
+.feature:hover .feature-image {
+    opacity: 0.7;
+}
+
+.feature:hover .feature-info {
+    opacity: 1; /* Muestra la información en hover */
+    transform: translateY(0); /* Mueve la información a su lugar */
+}
+
+.feature-info h2 {
+    font-size: 28px;
+    color: #C8AA6E;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.feature-info p {
+    font-size: 18px;
+    color: #FFFFFF;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        max-width: 80%; /* Ajustado para pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem; /* Ajustado para pantallas pequeñas */
+    }
+
+    .hero p {
+        font-size: 1.25rem; /* Ajustado para pantallas pequeñas */
+    }
+
+    .cta-button {
+        padding: 10px 20px; /* Ajustado para pantallas pequeñas */
+        font-size: 1rem;
+        margin-bottom: 15px; /* Ajustado para pantallas pequeñas */
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        max-width: 100%; /* Ajustado para pantallas pequeñas */
+        margin: 10px 0; /* Reduce el margen para móviles */
+    }
+
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem; /* Ajustado para pantallas muy pequeñas */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Ajustado para pantallas muy pequeñas */
+    }
+
+    .cta-button {
+        padding: 8px 16px; /* Ajustado para pantallas muy pequeñas */
+        font-size: 0.875rem; /* Ajustado para pantallas muy pequeñas */
+    }
+
+    .feature-info h2 {
+        font-size: 1.5rem; /* Ajustado para pantallas muy pequeñas */
+    }
+
+    .feature-info p {
+        font-size: 0.875rem; /* Ajustado para pantallas muy pequeñas */
+    }
+
+    .character {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .character-image {
+        width: 100%;
+        height: auto;
+        max-width: 300px; /* Ajusta el tamaño máximo de la imagen */
+        border: none; /* Elimina el borde dorado en pantallas pequeñas */
+    }
+
+    .character-info {
+        margin-left: 0; /* Elimina el margen izquierdo */
+        padding: 20px;
+        max-height: 400px; /* Limita la altura para permitir el scroll */
+        overflow-y: auto; /* Agrega el scroll */
+    }
+}
+
+.pricing {
+    background-color: #161f32;
+    padding: 64px 16px;
+    text-align: center;
+}
+
+.pricing h2 {
+    margin-bottom: 32px;
+    font-size: 2rem; /* Ajustado a rem para flexibilidad */
+}
+
+.pricing-table {
+    display: flex;
+    flex-wrap: wrap; /* Permite el ajuste en pantallas más pequeñas */
+    justify-content: space-around;
+    gap: 24px; /* Añade espacio entre las tarjetas de precios */
+}
+
+.characters {
+    padding: 25px 20px;
+    background-color: #0A1428; /* Fondo oscuro para contrastar */
+    color: #FFFFFF;
+}
+
+.characters h2 {
+    font-size: 2.25rem; /* Ajustado a rem para flexibilidad */
+    color: #C8AA6E; /* Dorado */
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.character {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #161f32; /* Fondo ligeramente más claro */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    transition: transform 0.3s ease;
+}
+
+.character:hover {
+    transform: scale(1.02);
+}
+
+.character-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 12px; /* Esquinas redondeadas */
+    object-fit: cover; /* Ajustar imagen al contenedor */
+    border: 5px solid #C8AA6E; /* Borde dorado */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-info {
+    margin-left: 20px;
+    max-width: 600px; /* Limita el ancho del texto */
+}
+
+.character-info h3 {
+    font-size: 1.5rem; /* Ajustado a rem para flexibilidad */
+    color: #C8AA6E; /* Dorado */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.character-info p {
+    font-size: 1rem; /* Ajustado a rem para flexibilidad */
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+.requirements {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Fondo claro */
+    color: #333333;
+}
+
+.requirements h2 {
+    font-size: 2rem; /* Ajustado a rem para flexibilidad */
+    color: #0A1428;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.requirements-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.requirements-section {
+    background: #ffffff; /* Fondo blanco para las cajas */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    max-width: 65%; /* Ancho máximo para que las dos cajas ocupen espacio similar */
+    margin-bottom: 20px;
+}
+
+.requirements-section h3 {
+    font-size: 1.5rem; /* Ajustado a rem para flexibilidad */
+    color: #0A1428;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.requirements-section ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.requirements-section li {
+    margin-bottom: 10px;
+    font-size: 1rem; /* Ajustado a rem para flexibilidad */
+}
+
+/* Contact */
+.contact {
+    background-color: #0A1428;
+    padding: 10px 16px;
+    padding-bottom: 26px;
+    text-align: center;
+}
+
+.contact h2 {
+    margin-bottom: 32px;
+    font-size: 2rem; /* Ajustado a rem para flexibilidad */
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.contact button {
+    padding: 12px 24px;
+    background-color: #C8AA6E;
+    border: none;
+    color: #0A1428;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contact button:hover {
+    background-color: #B2925A;
+}
+
+footer {
+    background-color: #161f32;
+    padding: 32px 16px;
+    text-align: center;
+}
+
+footer .social-icons a {
+    margin: 0 8px;
+}
+
+footer .social-icons .icon-link {
+    background-color: #ffffff;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden; /* Asegura que la imagen no se desborde del círculo */
+    text-align: center;
+    line-height: 24px; /* Alinea verticalmente el contenido */
+}
+
+footer .social-icons .icon-link img {
+    width: 100%; /* Hace que la imagen ocupe todo el contenedor */
+    height: 100%;
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+}
+
+footer .social-icons .icon-link:hover {
+    background-color: #C8AA6E;
+}
+
+/* Menu Toggle (Hamburger Icon) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: #FFFFFF;
+}
+
+
+/* Menu Toggle (Hamburger Icon) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: #FFFFFF;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        max-width: 80%; /* Ajustado para pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem; /* Ajustado para pantallas pequeñas */
+    }
+
+    .hero p {
+        font-size: 1.25rem; /* Ajustado para pantallas pequeñas */
+    }
+
+    .cta-button {
+        padding: 10px 20px; /* Ajustado para pantallas pequeñas */
+        font-size: 1rem; /* Ajustado para pantallas pequeñas */
+    }
+
+    .pricing-table {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .character-info {
+        max-height: 400px; /* Limita la altura para permitir el scroll */
+        overflow-y: auto; /* Agrega el scroll */
+        padding: 20px; /* Añade padding para separación del texto */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem; /* Ajustado para pantallas muy pequeñas */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Ajustado para pantallas muy pequeñas */
+    }
+
+    .cta-button {
+        padding: 10px 20px; /* Ajustado para pantallas pequeñas */
+        font-size: 1rem;
+        margin-bottom: 15px; /* Ajustado para pantallas pequeñas */
+    }
+
+    .feature-info h2 {
+        font-size: 1.5rem; /* Ajustado para pantallas muy pequeñas */
+    }
+
+    .feature-info p {
+        font-size: 0.875rem; /* Ajustado para pantallas muy pequeñas */
+    }
+
+    footer .social-icons .icon-link {
+        width: 20px;
+        height: 20px;
+    }
+}
